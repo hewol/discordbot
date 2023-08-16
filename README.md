@@ -5,7 +5,7 @@
 1. Add your bot's token to the .env file (Replace `<token>` with your bot's token)
 2. Install NodeJS on your server or machine or whatever it is (https://nodejs.org/)
 3. Run the bot with the command `node main.js`
-4. That's it! The bot should be running!
+4. That's it! The bot should be working! To test it run !ceata or !open, and if it replies with "ok" then its working!
 
 yes it's that simple
 
