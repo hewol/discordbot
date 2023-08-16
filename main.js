@@ -2,6 +2,7 @@
 
 const { Client } = require('discord.js');
 const client = new Client();
+require('dotenv').config();
 
 // Event: Bot is ready
 client.once('ready', () => {
@@ -22,5 +23,5 @@ client.on('message', (message) => {
     }
   });
 
-// Put Discord Token here
-client.login('token');
+// Login as the bot
+client.login('process.env.BOT_TOKEN');
