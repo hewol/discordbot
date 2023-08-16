@@ -1,4 +1,4 @@
-// index.js
+// main.js
 
 const { Client } = require('discord.js');
 const client = new Client();
