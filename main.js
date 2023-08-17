@@ -1,6 +1,7 @@
 // main.js
-
-const { Client } = require("discord.js");
+const fs = require('node:fs');
+const path = require('node:path');
+const { Client, Collection, Events } = require("discord.js");
 const client = new Client({ intents: 33281 });
 require('dotenv').config();
 
