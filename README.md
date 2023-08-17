@@ -12,6 +12,8 @@ yes it's that simple
 ## Normal Route
 Just to make your life a bit eaiser, you can add the bot and use it normally...
 
-but we dont have the bot ready yet so later...
+[Bot Invite](https://discord.com/api/oauth2/authorize?client_id=1141365284968607758&permissions=8&scope=bot)
 
 ### Under Developement Currently
+For now the bot we deployed needs `Administrator` but later we will narrow the perms list down after all making and testing is done.
+
