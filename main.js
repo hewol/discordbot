@@ -1,19 +1,84 @@
-const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+// main.js
+const fs = require('node:fs');
+const path = require('node:path');
+const { Client, Collection, Events, REST, Routes } = require("discord.js");
+const client = new Client({ intents: 33281 });
+const keep_alive = require("./keep-alive.js");
 
-module.exports = {
-        data: new SlashCommandBuilder()
-                .setName('calc')
-                .setDescription('Calculate the given expression'),
-      .addStringOption((option) =>
-      option
-        .setName('Expression')
-        .setDescription('Enter the Expression in the format 26*3 and 345/5')
-        .setRequired(true)
-    )
-        async execute(interaction) {
-          const option-cmd = interaction.options.getString('Expression');
-          const expression = option-cmd.content.split(" ")[1]; 
-             
+// Slash commands support - add commands into the ./commands/ folder
+client.commands = new Collection();
+const commandsPath = path.join(__dirname, 'commands');
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const filePath = path.join(commandsPath, file);
+	const command = require(filePath);
+	if ('data' in command && 'execute' in command) {
+		client.commands.set(command.data.name, command);
+	} else {
+		console.log(`[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`);
+	}
+}
+
+client.on(Events.InteractionCreate, async (interaction) => {
+	if (!interaction.isChatInputCommand()) return;
+
+	const command = interaction.client.commands.get(interaction.commandName);
+	if (!command) {
+		console.error(`No command matching ${interaction.commandName} was found.`);
+		return;
+	}
+
+	try {
+		await command.execute(interaction);
+	} catch (error) {
+		console.error(error);
+		if (interaction.replied || interaction.deferred) {
+			await console.log({ content: 'There was an error while executing this command!', ephemeral: true });
+		} else {
+			await console.log({ content: 'There was an error while executing this command!', ephemeral: true });
+		}
+	}
+});
+
+const statusList = [
+  { type: 'PLAYING', name: 'GitHub' },
+  { type: 'PLAYING', name: 'Nothing' },
+  { type: 'STREAMING', name: 'Nothing' },
+  { type: 'PLAYING', name: 'aerOS' },
+  { type: 'PLAYING', name: 'Terminal' }
+];
+
+client.on('ready', () => {
+  console.log('Bot is online');
+
+  setInterval(() => {
+    const randomStatus = statusList[Math.floor(Math.random() * statusList.length)];
+    client.user.setPresence({
+      activity: { name: randomStatus.name },
+      status: 'online',
+      type: randomStatus.type
+    })
+      .then(console.log)
+      .catch(console.error);
+  }, 30 * 60 * 1000); // 30 minutes interval
+}); 
+
+// Event: Bot is ready
+client.once("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+// Event: !ceata, !open
+client.on("messageCreate", (message) => {
+  if (message.content === "$ceata") {
+    message.reply("ok");
+  } else if (message.content === "$open") {
+    message.reply("ok");
+  } else if (message.content === "<@1141365284968607758>") {
+    message.reply("Hello!");
+  } else if (message.content.startsWith("$calc")) {
+      const expression = message.content.split(" ")[1];
       let result;
   
       try {
@@ -29,5 +94,9 @@ module.exports = {
       } catch (error) {
           message.reply("Please enter a valid expression like `$calc 3*23` or `$calc 34+35`"); // Handle other errors
       }
-        }
-};
+  }
+});
+
+
+// Login as the bot
+client.login(process.env['BOT_TOKEN']);
