@@ -2,6 +2,7 @@
 
 const { Client } = require("discord.js");
 const client = new Client({ intents: 33281 });
+require('dotenv').config();
 
 // Event: Bot is ready
 client.once("ready", () => {
