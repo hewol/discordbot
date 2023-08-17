@@ -20,6 +20,7 @@ for (const file of commandFiles) {
 	}
 }
 
+// Event: Run slash commands
 client.on(Events.InteractionCreate, async (interaction) => {
 	if (!interaction.isChatInputCommand()) return;
 
@@ -41,8 +42,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 	}
 });
 
-
-
+// List of statuses
 const statusList = [
   { type: 'PLAYING', name: 'GitHub' },
   { type: 'PLAYING', name: 'Nothing' },
@@ -51,6 +51,7 @@ const statusList = [
   { type: 'PLAYING', name: 'Terminal' }
 ];
 
+// Event: Run once when ready
 client.on('ready', () => {
   console.log('Bot is online');
 
@@ -69,17 +70,6 @@ client.on('ready', () => {
 // Event: Bot is ready
 client.once("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
-});
-
-// Event: !ceata, !open
-client.on("messageCreate", (message) => {
-  if (message.content === "!ceata") {
-    message.reply("ok");
-  }
-
-  if (message.content == "!open") {
-    message.reply("ok");
-  }
 });
 
 // Event: Reply "Hello!" if pinged
