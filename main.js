@@ -20,6 +20,7 @@ for (const file of commandFiles) {
 	}
 }
 
+// Event: Run slash commands
 client.on(Events.InteractionCreate, async (interaction) => {
 	if (!interaction.isChatInputCommand()) return;
 
@@ -41,6 +42,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 	}
 });
 
+// List of statuses
 const statusList = [
   { type: 'PLAYING', name: 'GitHub' },
   { type: 'PLAYING', name: 'Nothing' },
@@ -49,6 +51,7 @@ const statusList = [
   { type: 'PLAYING', name: 'Terminal' }
 ];
 
+// Event: Run once when ready
 client.on('ready', () => {
   console.log('Bot is online');
 
@@ -69,31 +72,11 @@ client.once("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-// Event: !ceata, !open
+
+// Event: Reply "Hello!" if pinged
 client.on("messageCreate", (message) => {
-  if (message.content === "$ceata") {
-    message.reply("ok");
-  } else if (message.content === "$open") {
-    message.reply("ok");
-  } else if (message.content === "<@1141365284968607758>") {
+  if (message.content === "<@1141365284968607758>") {
     message.reply("Hello!");
-  } else if (message.content.startsWith("$calc")) {
-      const expression = message.content.split(" ")[1];
-      let result;
-  
-      try {
-          result = eval(expression);
-      
-          if (expression === "0/0") {
-              message.reply("Imagine that you have zero cookies and you split them evenly among zero friends. How many cookies does each person get? See? It doesn't make sense. And Cookie Monster is sad that there are no cookies, and you are sad that you have no friends."); // Handle 0/0
-          } else if (isNaN(result)) {
-              message.reply("Not Approved"); // Handle division by zero
-          } else {
-              message.reply(`Answer: ${result}`);
-          }
-      } catch (error) {
-          message.reply("Please enter a valid expression like `$calc 3*23` or `$calc 34+35`"); // Handle other errors
-      }
   }
 });
 
