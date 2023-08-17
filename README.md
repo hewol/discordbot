@@ -2,7 +2,7 @@
 - **OpenBot is an Open Source Discord Bot made by Hewol**
 
 ## Deploy it
-1. Add your bot's token to the .env file (Replace `<token>` with your bot's token)
+1. Add your bot's token and id in the .env file (Replace `<token>` with your bot's token and `<id>` with your bot's id)
 2. Install NodeJS on your server or machine or whatever it is (https://nodejs.org/)
 3. Run the bot with the command `node main.js`
 4. That's it! The bot should be working! To test it run !ceata or !open, and if it replies with "ok" then its working!
