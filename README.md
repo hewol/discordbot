@@ -2,15 +2,15 @@
 - **OpenBot is an Open Source Discord Bot made by Hewol**
 
 ## Deploy it
-1. Rename the .env.example file to .env and add your bot's token and id in the .env file (Replace `<token>` with your bot's token and `<id>` with your bot's id)
-2. Install NodeJS on your server or machine (https://nodejs.org/)
-3. Run the bot with the command `node main.js`
-4. That's it! The bot should be working! To test it run $ceata or $open, and if it replies with "ok" then its working!
+1. Rename the .env.example file to .env and add your bot's token and id in the .env file. Replace `<token>` with your bot's token
+3. Install Python on your server or machine: https://python.org
+4. Run the bot with the command `python3 main.py`
+5. That's it! The bot should be working! To test it run any of the slash commands.
 
-yes it's that simple
+<sup><sub>It's that easy.</sub></sup>
 
 ## Normal Route
-Just to make your life a bit eaiser, you can add the bot and use it normally...
+Just to make your life a bit easier, you can add the bot and use it normally...
 
 [Bot Invite](https://discord.com/api/oauth2/authorize?client_id=1141365284968607758&permissions=8&scope=bot)
 
