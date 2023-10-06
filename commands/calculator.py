@@ -5,7 +5,7 @@ plugin = lightbulb.Plugin(name="Hello")
 
 @plugin.command()
 @lightbulb.option(
-    "expression", "Enter the Expression in the format 26*3 and 345/5", type=str
+    "expression", "Enter the expression in the format '26*3' or '345/5', etc.", type=str
 )
 @lightbulb.command("calculator", "Calculate the given expression")
 @lightbulb.implements(lightbulb.SlashCommand)
@@ -13,9 +13,9 @@ async def calculator(ctx: lightbulb.Context):
     try:
         if ctx.options.expression in ["0/0", "0 / 0"]:
             return await ctx.respond(
-                "imagine that you have zero cookies and you split them evenly among zero friends. "
-                "how many cookies does each person get? see? it doesn't make sense. "
-                "And Cookie Monster is sad that there are no cookies, "
+                "Imagine that you have zero cookies and you split them evenly among zero friends. "
+                "How many cookies does each person get? See? It doesn't make sense, "
+                "and Cookie Monster is sad that there are no cookies, "
                 "and you are sad that you have no friends."
             )
         result = eval(ctx.options.expression)

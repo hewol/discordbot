@@ -4,7 +4,7 @@ plugin = lightbulb.Plugin(name="Ping")
 
 
 @plugin.command()
-@lightbulb.command("ping", "check the bot's ping")
+@lightbulb.command("ping", "Check the bot's ping")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def ping(ctx: lightbulb.Context):
     latency = round(ctx.bot.heartbeat_latency * 1000)
