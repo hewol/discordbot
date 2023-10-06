@@ -27,8 +27,8 @@ async def on_ready(event: hikari.StartedEvent):
     cycle_status.start()
 
 
-@tasks.task(s=30, pass_app=True)
-async def cycle_status(bot: lightbulb.BotApp):
+@tasks.task(s=30)
+async def cycle_status():
     # Cycling Statuses Task
     await bot.update_presence(
         status=hikari.Status("dnd"),

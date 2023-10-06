@@ -7,7 +7,7 @@ plugin = lightbulb.Plugin(name="PingWeb")
 
 @plugin.command()
 @lightbulb.option("url", "The website to ping.", required=True, type=str)
-@lightbulb.command("pingweb", "Ping a website and measure response time")
+@lightbulb.command("pingweb", "Ping a website and measure response time", auto_defer=True)
 @lightbulb.implements(lightbulb.SlashCommand)
 async def ping_website(ctx: lightbulb.Context):
     try:
