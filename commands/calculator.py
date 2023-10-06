@@ -13,10 +13,7 @@ async def calculator(ctx: lightbulb.Context):
     try:
         if ctx.options.expression in ["0/0", "0 / 0"]:
             return await ctx.respond(
-                "Imagine that you have zero cookies and you split them evenly among zero friends. "
-                "How many cookies does each person get? See? It doesn't make sense, "
-                "and Cookie Monster is sad that there are no cookies, "
-                "and you are sad that you have no friends."
+                "I don't know"
             )
         result = eval(ctx.options.expression)
     except ZeroDivisionError:
