@@ -8,9 +8,11 @@ plugin = lightbulb.Plugin(name="Hello")
 @lightbulb.command("test", "test slash commands")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def test(ctx: lightbulb.Context):
-    e = hikari.Embed(title="test embed!",
-                     description="test",
-                     color=hikari.Color.from_hex_code("#315d6e"))
+    e = hikari.Embed(
+        title="test embed!",
+        description="test",
+        color=hikari.Color.from_hex_code("#315d6e"),
+    )
     await ctx.respond(e)
 
 
