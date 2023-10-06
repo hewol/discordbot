@@ -14,10 +14,12 @@ bot = lightbulb.BotApp(
     intents=hikari.Intents.ALL_UNPRIVILEGED | hikari.Intents.MESSAGE_CONTENT,
 )
 
-statuses = itertools.cycle([
-    "/help\u30fbhttps://github.com/hewol/OpenBot",
-    "/help\u30fbhttps://github.com/hewol/aerOS"
-])
+statuses = itertools.cycle(
+    [
+        "/help\u30fbhttps://github.com/hewol/OpenBot",
+        "/help\u30fbhttps://github.com/hewol/aerOS",
+    ]
+)
 
 
 @bot.listen(hikari.StartedEvent)
