@@ -16,7 +16,7 @@ async def ping_website(ctx: lightbulb.Context):
             async with session.get(ctx.options.url) as response:
                 if response.ok:
                     end_time = time.time()
-                    response_time = (end_time - start_time).total_seconds() * 1000  # Convert to milliseconds
+                    response_time = round((end_time - start_time) * 1000)  # Convert to milliseconds
                     await ctx.respond(f"Website `{ctx.options.url}` is online. response time: {response_time:.2f}ms")
                 else:
                     await ctx.respond(f"Website `{ctx.options.url}` returned status code: {response.status}")
