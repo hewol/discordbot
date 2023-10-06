@@ -16,8 +16,8 @@ bot = lightbulb.BotApp(
 
 statuses = itertools.cycle(
     [
-        "/help\u30fbhttps://github.com/hewol/OpenBot",
-        "/help\u30fbhttps://github.com/hewol/aerOS",
+        "https://github.com/hewol/OpenBot",
+        "https://github.com/hewol/aerOS",
     ]
 )
 
