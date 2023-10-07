@@ -7,7 +7,7 @@ plugin = lightbulb.Plugin(name="Moderation")
 
 
 @plugin.command()
-@lightbulb.has_guild_permissions(hikari.Permissions.BAN_MEMBERS)
+@lightbulb.add_checks(lightbulb.has_guild_permissions(hikari.Permissions.BAN_MEMBERS))
 @lightbulb.command("ban", "Ban a user from the server")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def ban(ctx: lightbulb.Context, member: hikari.User, *, reason: str = "No reason provided"):
