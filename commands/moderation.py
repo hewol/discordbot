@@ -20,7 +20,7 @@ async def ban(ctx: lightbulb.Context, member: hikari.User, *, reason: str = "No 
 
 
 @plugin.command()
-@lightbulb.checks.has_guild_permissions(hikari.Permissions.KICK_MEMBERS)
+@lightbulb.add_checks(lightbulb.has_guild_permissions(hikari.Permissions.KICK_MEMBERS))
 @lightbulb.command("kick", "Kick a user from the server")
 @lightbulb.implements(lightbulb.SlashCommand)
 async def kick(ctx: lightbulb.Context, member: hikari.User, *, reason: str = "No reason provided"):
