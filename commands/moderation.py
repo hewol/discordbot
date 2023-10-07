@@ -8,10 +8,10 @@ plugin = lightbulb.Plugin(name="Moderation")
 
 @plugin.command()
 @lightbulb.option(
-    "member", "The person to ban", type=hikari.Member, required=True
+    "reason", "Reason for the ban", type=str, required=True
 )
 @lightbulb.option(
-    "reason", "Reason for the ban", type=str, required=True
+    "member", "The person to ban", type=hikari.Member, required=True
 )
 @lightbulb.add_checks(lightbulb.has_guild_permissions(hikari.Permissions.BAN_MEMBERS))
 @lightbulb.command("ban", "Ban a user from the server")
@@ -27,10 +27,10 @@ async def ban(ctx: lightbulb.Context):
 
 @plugin.command()
 @lightbulb.option(
-    "member", "The person to kick", type=hikari.Member, required=True
+    "reason", "Reason for the kick", type=str, required=True
 )
 @lightbulb.option(
-    "reason", "Reason for the kick", type=str, required=True
+    "member", "The person to kick", type=hikari.Member, required=True
 )
 @lightbulb.add_checks(lightbulb.has_guild_permissions(hikari.Permissions.KICK_MEMBERS))
 @lightbulb.command("kick", "Kick a user from the server")
