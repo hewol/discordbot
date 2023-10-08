@@ -1,5 +1,0 @@
-hikari
-hikari-lightbulb
-hikari-miru
-
-python-dotenv
