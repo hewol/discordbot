@@ -12,9 +12,7 @@ plugin = lightbulb.Plugin(name="Hello")
 async def calculator(ctx: lightbulb.Context):
     try:
         if ctx.options.expression in ["0/0", "0 / 0"]:
-            return await ctx.respond(
-                "I don't know"
-            )
+            return await ctx.respond("I don't know")
         result = eval(ctx.options.expression)
     except ZeroDivisionError:
         return await ctx.respond("Not Approved")

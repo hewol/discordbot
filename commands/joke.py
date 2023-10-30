@@ -7,7 +7,9 @@ plugin = lightbulb.Plugin(name="Joke")
 
 async def fetch_joke():
     async with aiohttp.ClientSession() as session:
-        async with session.get("https://official-joke-api.appspot.com/random_joke") as response:
+        async with session.get(
+            "https://official-joke-api.appspot.com/random_joke"
+        ) as response:
             data = await response.json()
             return data
 
