@@ -13,5 +13,5 @@
 Just to make your life a bit easier, you can [add the bot](https://discord.com/api/oauth2/authorize?client_id=1141365284968607758&permissions=8&scope=bot) to use it normally.
 
 ### Warning
-The bot needs `Administrator` permissions, if you notice any strange or weird activities, please ASAP inform us at [E-mail](mailto:hewol@proton.me) or [Discord](https://discord.gg/haTmcAtKCP) or Create a issue, we will reset the token.
+The bot needs `Administrator` permissions, if you notice any strange or weird activities, please ASAP inform us at [E-mail](mailto:hewol@proton.me) or [Discord](https://discord.gg/haTmcAtKCP) or [create a issue](https://github.com/hewol/OpenBot/issues/new), we will reset the token.
 
